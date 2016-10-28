@@ -57,14 +57,14 @@ cacheSolve <- function(x, ...) {
 
 # Step 3: let's test to see if the function works properly:
 
-A = matrix(c(3,4,1,2),nrow=2,ncol=2) # this is a 2x2 matrix
+A <- matrix(c(3,4,1,2),nrow=2,ncol=2) # this is a 2x2 matrix
 
-B = makeCacheMatrix(A)
+B <- makeCacheMatrix(A)
 
-C1 = cacheSolve(B)
+C1 <- cacheSolve(B)
 C1 # show computed result
 
-C2 = cacheSolve(B)
+C2 <- cacheSolve(B)
 C2 # show cached result
 
 # ============= End of Assignment =================#
