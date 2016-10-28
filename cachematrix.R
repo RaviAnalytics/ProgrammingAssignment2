@@ -21,14 +21,14 @@
 
 # Step 1: let's create the makeCacheMatrix function:
 
-makeCacheMatrix <- function(A = matrix()) {
+makeCacheMatrix <- function(x = matrix()) {
         
         matrix_inverse <- NULL # this pre-sets the matrix inverse variable
-        set <- function(B) {
-                A <<- B
+        set <- function(y) {
+                x <<- y
                 matrix_inverse <<- NULL
         }
-        get <- function() A
+        get <- function() x
         set_mat_inv <- function(set_mat_inv) matrix_inverse <<- set_mat_inv
         get_mat_inv <- function() matrix_inverse
         list(set = set, get = get, 
@@ -42,15 +42,15 @@ makeCacheMatrix <- function(A = matrix()) {
 
 # Step 2: let's create the cacheSolve function:
 
-cacheSolve <- function(A, ...) {
-        matrix_inverse <- A$get_mat_inv()
+cacheSolve <- function(x, ...) {
+        matrix_inverse <- x$get_mat_inv()
         if(!is.null(matrix_inverse)) {
                 message("Retrieving Cached result")
                 return(matrix_inverse)
         }
-        Matrix <- A$get()
+        Matrix <- x$get()
         matrix_inverse <- solve(Matrix)
-        A$set_mat_inv(matrix_inverse)
+        x$set_mat_inv(matrix_inverse)
         matrix_inverse
 }
 
